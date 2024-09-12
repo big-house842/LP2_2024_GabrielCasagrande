@@ -59,4 +59,8 @@ public class Receba {
         return GERADOR.nextInt(lim_Sup-lim_Inf)+lim_Inf;
     }
 
+    public static String LerString(){
+        return LER.nextLine();
+    }
+
 }

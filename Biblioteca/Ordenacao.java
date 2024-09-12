@@ -140,7 +140,46 @@ public class Ordenacao {
 
     }
 
-    public static int Quick(int[] vetor){
-
+    public static int[] Quick(int[] vetor){
+        return doQuick(vetor, 0, vetor.length-1);
     }
+
+    private static int[] doQuick(int[] vetor, int lim_Inf, int lim_Sup) {
+
+        int i = lim_Inf;
+        int j = lim_Sup;
+        int pivo = vetor[i];
+        int sub = 0;
+
+        while (i < j) {
+
+            while (vetor[i] < pivo) {
+                i++;
+            }
+            while (vetor[j] > pivo) {
+                j--;
+            }
+
+            if (i <= j) {
+
+                sub = vetor[i];
+                vetor[i] = vetor[j];
+                vetor[j] = sub;
+
+                i++;
+                j--;
+            }
+
+        }
+
+        if (lim_Inf<j) {
+            doQuick(vetor, lim_Inf, j); 
+        }
+        if (i<lim_Sup) {
+            doQuick(vetor, i, lim_Sup);
+        }
+
+        return vetor;
+    }
+
 }
