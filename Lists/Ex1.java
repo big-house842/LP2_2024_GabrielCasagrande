@@ -19,20 +19,28 @@ public class Ex1 {
         adicionarfinal(jedi);
 
         imprimir(jedi);
+        System.out.println();
 
-        reverterNumeros(jedi);// quick ao contrário;
+        reverterNumeros(jedi);
 
         imprimir(jedi);
+
+    }
+
+    private static void reverterNumeros(ArrayList<String> jedi) {
+        jedi.reversed();
     }
 
     private static void imprimir(ArrayList<String> jedi) {
         for (String i : jedi) {
             System.out.print(i+" ");
         }
+        System.out.println();
     }
 
     private static void adicionarNum(ArrayList<String> jedi){
-        int n = lerN();
+        System.out.println(" Quantos jedis são: ");
+        int n = Receba.LerNumero();
 
         for (int i = 0; i <= n; i++) {
 
@@ -45,25 +53,17 @@ public class Ex1 {
     }
 
     private static void adicionarfinal(ArrayList<String> jedi) {
-        int m = lerM();
-        int final = 0;
+        System.out.println(" Quantos jedis adicionar no final: ");       
+        int m = Receba.LerNumero();
         
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i <= m; i++) {
 
             String j = Receba.LerString();
 
-            final = jedi.get(jedi.size() - 1);
-
-            jedi.add(final, j);
+            jedi.add(jedi.size(), j);
 
         }
 
-
-    }
-
-    private static int lerM() {
-        System.out.println(" Quantos jedis adicionar no final: ");
-        return Receba.LerNumero();
     }
 
     private static void removeNum(ArrayList<String> jedi) {
@@ -72,11 +72,6 @@ public class Ex1 {
 
     private static void adicionarInicio(ArrayList<String> jedi) {
         jedi.add(1, "Edinmar");
-    }
-
-    private static int lerN() {
-        System.out.println(" Quantos jedis são: ");
-        return Receba.LerNumero();
     }
 
 }
