@@ -1,5 +1,7 @@
 package Lists;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import Biblioteca.*;
 
 public class Ex1 {
@@ -8,27 +10,27 @@ public class Ex1 {
 
         ArrayList<String> jedi = new ArrayList<String>();
 
-        adicionarNum(jedi);
+        adicionarJedi(jedi);
 
         adicionarInicio(jedi);
 
         imprimir(jedi);
 
-        removeNum(jedi);
+        removeJedis(jedi);
 
         adicionarfinal(jedi);
 
         imprimir(jedi);
         System.out.println();
 
-        reverterNumeros(jedi);
+        reverterJedis(jedi);
 
         imprimir(jedi);
 
     }
 
-    private static void reverterNumeros(ArrayList<String> jedi) {
-        jedi.reversed();
+    private static void reverterJedis(ArrayList<String> jedi) {
+        Collections.reverse(jedi);
     }
 
     private static void imprimir(ArrayList<String> jedi) {
@@ -38,7 +40,7 @@ public class Ex1 {
         System.out.println();
     }
 
-    private static void adicionarNum(ArrayList<String> jedi){
+    private static void adicionarJedi(ArrayList<String> jedi){
         System.out.println(" Quantos jedis são: ");
         int n = Receba.LerNumero();
 
@@ -66,7 +68,7 @@ public class Ex1 {
 
     }
 
-    private static void removeNum(ArrayList<String> jedi) {
+    private static void removeJedis(ArrayList<String> jedi) {
         jedi.remove(3);
     }
 
