@@ -1,8 +1,6 @@
-package Lists;
-import java.util.Scanner;
+package Biblioteca;
 
-public class Cachorro {
-    final static Scanner LER = new Scanner(System.in);
+public class Cachorro {// Objeto
 
     private String nome = null;// criar os atributos
     private int idade = 0;
@@ -10,9 +8,10 @@ public class Cachorro {
 
     public void receberCachorro(){// lê os atributo
 
-        this.nome = LER.next();
-        this.idade = LER.nextInt();
-        this.apelido = LER.next();
+        this.nome = Receba.LerString();
+        this.idade = Receba.LerNumero();
+        this.apelido = Receba.LerString();
+
     }
 
     public String voltarNome(){// volta o atributo
@@ -31,6 +30,8 @@ public class Cachorro {
         System.out.println(" Seu cachorro "+ this.nome + " ta velin, tem "+ this.idade +" aninhos. Mais conhecido como "+ this.apelido);
     }
 
-
+    public void imprimirCachorro2(){
+        System.out.println(" Aii, meu deuzi; O "+ this.nome + " é muito fofo. E por mais que seu apelido seja "+ this.apelido +" ele é tem um corpo atlético, em pleno(s) "+ this.idade +" aninhos ;)" );
+    }
 
 }
