@@ -1,4 +1,6 @@
-package Biblioteca;
+package Modelo;
+
+import Biblioteca.Receba;
 
 public class Cachorro {// Objeto
 

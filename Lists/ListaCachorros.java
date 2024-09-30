@@ -2,6 +2,7 @@ package Lists;
 import java.util.ArrayList;
 
 import Biblioteca.*;
+import Modelo.Cachorro;
 
 public class ListaCachorros {
 
@@ -16,9 +17,13 @@ public class ListaCachorros {
         for (int i = 0; i < x; i++) {// 2. Preenche o vetor
 
             Cachorro dog = new Cachorro();// 3. Cria o objeto
-
-            System.out.println(" Escreva o nome, idade e apelido de um do(s) seu(s) dog(s): ");
+            if (x==1) {
+                System.out.println(" Escreva o nome, idade e apelido do dog: ");
+                System.out.print("    ");                
+            }else{
+            System.out.println(" Escreva o nome, idade e apelido de um dos seus dogs: ");
             System.out.print("    ");
+            }
             dog.receberCachorro();// 4. Recebe os atributos do objeto
 
             listaCachorros.add(dog);// 5.Adiciona o objeto na lista
@@ -38,12 +43,16 @@ public class ListaCachorros {
         Ordenacao.Merge(idades);// 7. Ordenando as idades;
 
         System.out.println();
+        if (idades.length == 1) {//octopus garden _ Hammer _ 
+            System.out.println(" Você só tem um doguinho, e tudo bem ;)");           
+        }else{
         System.out.println(" As idades organidas dos doguinhos: ");
-
+        System.out.print("    ");
+        
         for (int j = 0; j < idades.length; j++) {// 8. Imprime as idades ordenadas crescentemente
-            System.out.println("    ");
-            System.out.println(idades[i]+ " ");
+            System.out.print(idades[j]+ " ");
         }
+    }
         System.out.println();
 
         int j = 0;

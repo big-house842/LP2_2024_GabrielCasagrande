@@ -1,11 +1,11 @@
  all: build run
 
  build: 
-		javac -d bin Codigo.java
+		javac -d bin Main.java
 		javac -d bin Biblioteca/*.java
 
  run: build
-		javac -d bin Codigo.java
+		javac -d bin Main.java
 
  clear:
 		rm -r bin

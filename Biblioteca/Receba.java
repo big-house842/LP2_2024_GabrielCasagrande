@@ -60,7 +60,7 @@ public class Receba {
     }
 
     public static String LerString(){
-        return LER.nextLine();
+        return LER.next();
     }
 
 }
