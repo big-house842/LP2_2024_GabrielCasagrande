@@ -15,7 +15,7 @@ public class Cachorro {// Objeto
         this.apelido = Receba.LerString();
 
     }
-
+// SEM STATIC, GERA OBJETO
     public String voltarNome(){// volta o atributo
         return this.nome;
     }
