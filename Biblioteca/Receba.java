@@ -63,4 +63,8 @@ public class Receba {
         return LER.next();
     }
 
+    public static boolean Has(){
+        return LER.hasNextLine();
+    }
+
 }

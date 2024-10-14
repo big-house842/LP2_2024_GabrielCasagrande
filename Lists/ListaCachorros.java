@@ -8,84 +8,97 @@ import Modelo.Cachorro;
 public class ListaCachorros {
 
     public static void Lista() {
+        ArrayList<Cachorro> listaCachorros = new ArrayList<Cachorro>();
 
-        System.out.println("    1 _ Criar vetor com os atributos do cachorro    ");
-        System.out.println("    2 _ Mostrar as idade(crescente) dos cachorros   ");
-        System.out.println("    3 _ ");
-        ArrayList<Cachorro> listaCachorros = new ArrayList<Cachorro>();// Cria a lista
-        int menu = Receba.LerNumero();
+        while (Receba.Has()) {
 
-        while (menu > 0) {
+            System.out.println("=============================================");
+            System.out.println("           MENU DE INTERAÇÃO                ");
+            System.out.println("=============================================");
+            System.out.println("    0 - Sair da interação                    ");
+            System.out.println("    1 - Criar vetor com os atributos do cachorro");
+            System.out.println("    2 - Mostrar as idades (crescente) dos cachorros");
+            System.out.println("    3 - Mostrar as informações               ");
+            System.out.println("=============================================");
+            System.out.print("Escolha uma opção: ");
+            System.out.println();
+
+            int menu = Receba.LerNumero();
+            System.out.println();
+
+            if (menu == 0) {  // Quebrar o HASNEXT
+                break;
+            }
+
 
             switch (menu) {
-                case 1:
 
-                    System.out.println(" Digite quantos cães você ainda quer adicionar: ");
-                    System.out.print("    ");
+                case 1: // Adiciona o objeto na lista
+
+
+                    System.out.println("Digite quantos cães você ainda quer adicionar: ");
+
                     int x = Receba.LerNumero();
+                    System.out.println();
 
-                    for (int i = 0; i < x; i++) {// Preenche o vetor
-
-                        Cachorro dog = new Cachorro();// Cria o objeto
+                    for (int i = 0; i < x; i++) { // Preenche a lista
+                        Cachorro dog = new Cachorro(); // Cria o objeto
                         if (x == 1) {
-                            System.out.println(" Escreva o nome, idade e apelido do dog: ");
-                            System.out.print("    ");
+                            System.out.println("Escreva o nome, idade e apelido do dog: ");
                         } else {
-                            System.out.println(" Escreva o nome, idade e apelido de um dos seus dogs: ");
-                            System.out.print("    ");
+                            System.out.println("Escreva o nome, idade e apelido de um dos seus dogs: ");
                         }
-                        dog.receberCachorro();// Recebe os atributos do objeto
-
-                        listaCachorros.add(dog);// Adiciona o objeto na lista
-
+                        System.out.print("    ");
+                        dog.receberCachorro(); // Recebe os atributos do objeto
+                        listaCachorros.add(dog);
                     }
 
-                case 2:
+                    System.out.println();
+
+                    break;
+
+                case 2: // Imprime as idades ordenadas crescentemente
+
+
+                    if (listaCachorros.isEmpty()) {
+                        System.out.println("Você não tem cachorros na lista.");
+                        break;
+                    }
 
                     int[] idades = new int[listaCachorros.size()];
-                    int i = 0;
 
-                    for (Cachorro dog : listaCachorros) {// 6. Criando um vetor com as idades dos cachorros
-
-                        idades[i] = dog.voltarIdade();
-                        i++;
+                    for (int i = 0; i < listaCachorros.size(); i++) {
+                        idades[i] = listaCachorros.get(i).voltarIdade(); // Preenchendo o array de idades
                     }
 
-                    Ordenacao.Merge(idades);// 7. Ordenando as idades;
+                    Ordenacao.Merge(idades); // Ordenando as idades
 
-                    System.out.println();
-                    if (idades.length == 1) {// octopus garden _ Hammer _
-                        System.out.println(" Você só tem um doguinho, e tudo bem ;)");
-                    } else {
-                        System.out.println(" As idades organidas dos doguinhos: ");
-                        System.out.print("    ");
+                    System.out.println("As idades organizadas dos doguinhos: ");
+                    System.out.print("    ");
 
-                        for (int j = 0; j < idades.length; j++) {// 8. Imprime as idades ordenadas crescentemente
-                            System.out.print(idades[j] + " ");
-                        }
+                    for (int idade : idades) {
+                        System.out.print(idade + " ");
                     }
+
+                    System.out.println();
                     System.out.println();
 
-                case 3:
+                    break;
 
+                case 3: // Imprimir Objetos
+
+
+                    for (Cachorro dog : listaCachorros) {
+                        dog.imprimirCachorro();
+                    }
+                    break;
+
+                case 4: // Remove os objetos da lista
+                    
+                    
+                
+                    break;
             }
         }
-
-        int j = 0;
-        System.out.println();
-
-        for (Cachorro dog : listaCachorros) {
-
-            if (j % 2 == 0) {// 9. Imprimir esta mensagem, se par
-                dog.imprimirCachorro();
-            } else {// 10. Imprimir esta se ímpar
-                dog.imprimirCachorro2();
-            }
-
-            System.out.println();
-            j++;
-        }
-
     }
-
 }
