@@ -1,5 +1,8 @@
  all: build run
 
+config:
+	
+
  build: 
 		javac -d bin Main.java
 		javac -d bin Biblioteca/*.java
