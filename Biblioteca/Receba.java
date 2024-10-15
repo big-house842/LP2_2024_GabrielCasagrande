@@ -1,7 +1,7 @@
 package Biblioteca;
 
 import java.util.Random;
-import java.util.Scanner;
+import java.util.Scanner;// atributo favorito
 
 public class Receba {
     final static Scanner LER = new Scanner(System.in);
