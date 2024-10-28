@@ -8,8 +8,22 @@ public class Pilha {
     public static void main(String[] args) {
         ArrayList<Cachorro> pilha = new ArrayList<Cachorro>();
 
-        while (Receba.Has()) {
+        while (true) {
 
+            System.out.println("=============================================");
+            System.out.println("           MENU DE INTERAÇÃO                ");
+            System.out.println("=============================================");
+            System.out.println("    0 - Sair da interação                    ");
+            System.out.println("    1 - Adicionar na pilha");
+            System.out.println("    2 - Tirar da pilha");
+            System.out.println("    3 - Retornar o último valor");
+            System.out.println("    4 - Retornar se a lista está vazia");
+            System.out.println("    5 - Mostrar o tamanho da lista");
+            System.out.println("    6 - Mostrar os itens da pilha");
+            System.out.println("    7 - Imprimir a pilha em formato String");
+            System.out.println("=============================================");
+            System.out.print("Escolha uma opção: ");
+            System.out.println();
             int menu = Receba.LerNumero();
 
             if (menu == 0) {
@@ -17,6 +31,7 @@ public class Pilha {
             }
 
             switch (menu) {
+
                 case 1:// Adiciona na pilha
                     empilhar(pilha);
                     break;
@@ -26,16 +41,16 @@ public class Pilha {
                 case 3:// Retorna o último valor
                     retornarUltimo(pilha);
                     break;
-                case 4:
+                case 4:// retorna se a lista está vazia
                     vazia(pilha);
                     break;
-                case 5:
+                case 5:// Mostra o tamanho da lista
                     tamanho(pilha);
                     break;
-                case 6:
+                case 6:// Mostra os itens da pilha
                     imprimirPilha(pilha);
                     break;
-                case 7:
+                case 7:// Imprime a pilha em formato String
                     transformarString(pilha);
                     break;
             }
@@ -43,74 +58,93 @@ public class Pilha {
     }
 
     private static void transformarString(ArrayList<Cachorro> pilha) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'transformarString'");
+
+        System.out.println("Esta é a pilha em formato String:");
+        System.out.println();
+        System.out.println(pilha.toString());
+
     }
 
     private static void imprimirPilha(ArrayList<Cachorro> pilha) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'imprimirPilha'");
+
+        System.out.println("A pilha é esta: ");
+        System.out.println();
+        for (int i = 0; i < pilha.size(); i++) {
+            pilha.get(i).imprimirCachorro();
+        }
+        
     }
 
     private static void tamanho(ArrayList<Cachorro> pilha) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'tamanho'");
+
+        System.out.println(" O tamanho da pilha é: " +  pilha.size());
+
     }
 
     private static void vazia(ArrayList<Cachorro> pilha) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'vazia'");
+
+        if (pilha.isEmpty()) {
+            System.out.println("Você não tem pets na lista.");
+        }
+
     }
 
     private static void retornarUltimo(ArrayList<Cachorro> pilha) {
-        
+
+        if (pilha.isEmpty()) {
+            System.out.println("Você não tem pets na lista.");
+        } else {
+            System.out.println("Este é o último cachorro da pilha: ");
+            pilha.get(pilha.size()).imprimirCachorro();
+        }
+
     }
 
     private static void desempilhar(ArrayList<Cachorro> pilha) {
 
-        //if (pilha.isEmpty()) {
-        //    System.out.println("Você não tem pets na lista.");
-        //    break;
-        //}
+        if (pilha.isEmpty()) {
+            System.out.println("Você não tem pets na lista.");
+        } else {
 
-        System.out.println("Quantos atributos de um cachorro você quer remover? ");
-        int numRemovidos = Receba.LerNumero();
-        System.out.println();
+            System.out.println("Quantos atributos de um cachorro você quer remover? ");
+            int numRemovidos = Receba.LerNumero();
+            System.out.println();
 
-        for (int i = 0; i < numRemovidos; i++) {
+            for (int i = 0; i < numRemovidos; i++) {
 
-            if (i >= 1) {
-                System.out.println("Agora do outro cachorro ");
+                if (i >= 1) {
+                    System.out.println("Agora do outro cachorro ");
+                    System.out.println();
+                }
+                System.out.println("Qual a ordem do cachorro que você quer remover o atributo? (Ex: 1,2,3...)");
+                int posicao = Receba.LerNumero();
                 System.out.println();
-            }
-            System.out.println("Qual a ordem do cachorro que você quer remover o atributo? (Ex: 1,2,3...)");
-            int posicao = Receba.LerNumero();
-            System.out.println();
 
-            System.out.println("O que você quer remover do " + posicao + "° cachorro: ");
-            String removido = Receba.LerString();
-            System.out.println();
+                System.out.println("O que você quer remover do " + posicao + "° cachorro: ");
+                String removido = Receba.LerString();
+                System.out.println();
 
-            posicao -= 1;
+                posicao -= 1;
 
-            if (removido.equals("nome")) {
+                if (removido.equals("nome")) {
 
-                pilha.get(posicao).RemoverNome();
+                    pilha.get(posicao).RemoverNome();
 
-            } else if (removido.equals("idade")) {
+                } else if (removido.equals("idade")) {
 
-                pilha.get(posicao).RemoverIdade();
+                    pilha.get(posicao).RemoverIdade();
 
-            } else if (removido.equals("apelido")) {
+                } else if (removido.equals("apelido")) {
 
-                pilha.get(posicao).RemoverApelido();
+                    pilha.get(posicao).RemoverApelido();
 
-            } else if (removido.equals("raça favorita")) {
+                } else if (removido.equals("raça favorita")) {
 
-                pilha.get(posicao).RemoverRaçaFavorita();
+                    pilha.get(posicao).RemoverRaçaFavorita();
+
+                }
 
             }
-
         }
 
     }
@@ -123,7 +157,6 @@ public class Pilha {
 
         for (int i = 0; i < x; i++) {
 
-
             Cachorro dog = new Cachorro();
             if (x == 1) {
                 System.out.println(
@@ -132,7 +165,6 @@ public class Pilha {
                 System.out.println(
                         "Escreva os nomes, idades, apelidos, a raça favorita de doguinhos, e a nota de educação dele: ");
             }
-
 
             dog.receberCachorro();
             pilha.add(pilha.size(), dog);
