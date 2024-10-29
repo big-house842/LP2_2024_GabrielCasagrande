@@ -101,3 +101,5 @@ public class ArquivoTxt {
   }
 
 }
+
+// Falta o carregar os dados do arquivo para a lista

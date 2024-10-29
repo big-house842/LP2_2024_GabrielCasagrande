@@ -2,7 +2,7 @@ package Modelo;
 
 import Biblioteca.Receba;
 
-public class Cachorro {// Objeto
+public class Cachorro {// Objeto // faltou o comparable e compareTo
 
     private String nome = null;// criar os atributos
     private int idade = 0;
