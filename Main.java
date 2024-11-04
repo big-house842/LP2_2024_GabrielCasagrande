@@ -4,7 +4,8 @@ public class Main {
     
     public static void main(String[] args) {
         
-        ListaCachorros.Lista();
-
+        //ListaCachorros.Lista();
+        AulaPQ_Obj.menuPriorityQueue();
+        
     }
 }

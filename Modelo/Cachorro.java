@@ -1,6 +1,10 @@
 package Modelo;
 
 import Biblioteca.Receba;
+/*Comentários importantes:
+ * Sem Static, gera obj
+ * 
+*/
 
 public class Cachorro {// Objeto // faltou o comparable e compareTo
 
@@ -10,14 +14,23 @@ public class Cachorro {// Objeto // faltou o comparable e compareTo
     private String racaFavorita = null;
     private int nota = 0;
 
-    public void receberCachorro(){// lê os atributo
+    public void ReceberCachorro(){// lê os atributo
+        System.out.println("------------------------------------------------");
+        System.out.println("      ....::: Cachorro :::....");
+        System.out.println("------------------------------------------------");
 
+        System.out.print("      Nome: ");
         this.nome = Receba.LerString();
+        System.out.print("      Idade: ");
         this.idade = Receba.LerNumero();
+        System.out.print("      Apelido: ");
         this.apelido = Receba.LerString();
+        System.out.print("      Raça Favorita: ");
         this.racaFavorita = Receba.LerString();
+        System.out.print("      Nota de educação: ");
         this.nota = Receba.LerNumero();
 
+        System.out.println("------------------------------------------------");
     }
 
     public void ReceberNome(){
@@ -39,7 +52,6 @@ public class Cachorro {// Objeto // faltou o comparable e compareTo
     public void ReceberNota(){
         this.nota = Receba.LerNumero();
     }
-// SEM STATIC, GERA OBJETO
 
     public void imprimirFavorito(){
         System.out.println("    RAÇA FAVORITA _ " + this.racaFavorita);
