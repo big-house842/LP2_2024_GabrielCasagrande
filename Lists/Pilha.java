@@ -166,7 +166,7 @@ public class Pilha {
                         "Escreva os nomes, idades, apelidos, a raça favorita de doguinhos, e a nota de educação dele: ");
             }
 
-            dog.receberCachorro();
+            dog.ReceberCachorro();
             pilha.add(pilha.size(), dog);
 
         }

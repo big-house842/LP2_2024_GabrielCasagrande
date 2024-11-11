@@ -54,7 +54,7 @@ public class ListaCachorros {
                         }
 
 
-                        dog.receberCachorro(); // Recebe os atributos do objeto
+                        dog.ReceberCachorro(); // Recebe os atributos do objeto
                         listaCachorros.add(dog);
 
 
