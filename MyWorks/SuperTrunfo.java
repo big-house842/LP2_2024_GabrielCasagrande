@@ -31,25 +31,63 @@ public class SuperTrunfo {
     }
 
     private static void fight(HashMap<Integer, Ghost> gamester1, HashMap<Integer, Ghost> gamester2) {
-        
-        Ghost ghost1 = gamester1.get(1);// Acessando os fantasmas de cada jogador
-        Ghost ghost2 = gamester2.get(1);
-    
-        if (Integer.parseInt(ghost1.ReturnStrength()) > Integer.parseInt(ghost2.ReturnStrength())) {
-            System.out.println("Jogador 1 vence, " + ghost1.ReturnStrength() + " > " + ghost2.ReturnStrength());
 
+        while (true) {
 
-            
-        } else if (Integer.parseInt(ghost1.ReturnStrength()) < Integer.parseInt(ghost2.ReturnStrength())) {
-            System.out.println("Jogador 2 vence, " + ghost2.ReturnStrength() + " > " + ghost1.ReturnStrength());
+            Ghost ghost1 = gamester1.get(1);// Acessando os fantasmas de cada jogador
+            Ghost ghost2 = gamester2.get(1);
 
+            if (ghost1 == null) {
+                System.out.println(" The gamester two is the best!! ");
+            } else if (ghost2 == null) {
+                System.out.println(" The gamester one is the best!! ");
+            }
 
+            if (ghost1 == null || ghost2 == null) {
+                break;
+            }
 
-        } else {
-            System.out.println("Empate, ambos têm " + ghost1.ReturnStrength());
+            if (Integer.parseInt(ghost1.ReturnStrength()) > Integer.parseInt(ghost2.ReturnStrength())) {
+
+                System.out.println("Player 1 win, " + ghost1.ReturnStrength() + " > " + ghost2.ReturnStrength());
+                ghost1win(gamester1, gamester2, ghost1, ghost2);
+
+            } else if (Integer.parseInt(ghost1.ReturnStrength()) < Integer.parseInt(ghost2.ReturnStrength())) {
+
+                System.out.println("Player 2 win, " + ghost2.ReturnStrength() + " > " + ghost1.ReturnStrength());
+                ghost2win(gamester1, gamester2, ghost1, ghost2);
+
+            } else {
+
+                System.out.println("Tied. The strength of ghosts is the same, " + ghost1.ReturnStrength());
+                return;
+
+            }
 
         }
 
+    }
+
+    private static void ghost2win(HashMap<Integer, Ghost> gamester1, HashMap<Integer, Ghost> gamester2, Ghost ghost1,
+            Ghost ghost2) {
+
+        gamester1.put(gamester2.size() + 1, ghost1);
+
+        gamester2.put(gamester1.size(), null);
+        gamester2.put(1, gamester1.get(2));
+
+        return;
+    }
+
+    private static void ghost1win(HashMap<Integer, Ghost> gamester1, HashMap<Integer, Ghost> gamester2, Ghost ghost1,
+            Ghost ghost2) {
+
+        gamester1.put(gamester1.size() + 1, ghost2);
+
+        gamester2.put(gamester2.size(), null);
+        gamester2.put(1, gamester2.get(2));
+
+        return;
     }
 
 }
