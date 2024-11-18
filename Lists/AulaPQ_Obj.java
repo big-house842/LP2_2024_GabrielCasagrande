@@ -1,7 +1,8 @@
 package Lists;
 
-import Modelo.*;
 import Biblioteca.*;
+import Modelos.*;
+
 import java.util.PriorityQueue;
 
 public class AulaPQ_Obj {

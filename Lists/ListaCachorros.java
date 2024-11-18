@@ -3,7 +3,7 @@ package Lists;
 import java.util.ArrayList;
 
 import Biblioteca.*;
-import Modelo.Cachorro;
+import Modelos.Cachorro;
 
 public class ListaCachorros {
 

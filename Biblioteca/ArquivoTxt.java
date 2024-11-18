@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Modelo.Cachorro;
+import Modelos.Cachorro;
 
 public class ArquivoTxt {
 
