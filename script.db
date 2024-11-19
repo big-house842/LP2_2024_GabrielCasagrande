@@ -1,0 +1,12 @@
+create database BancoDeDados;
+
+use BancoDeDados;
+drop database BancoDeDados;
+
+create table comida(
+	id int(2) auto_increment primary key,
+    name varchar(50),
+    power int(4),
+    size int(3)
+    
+);

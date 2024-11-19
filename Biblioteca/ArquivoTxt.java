@@ -49,7 +49,7 @@ public class ArquivoTxt {
 
     try {
 
-        FileWriter myWriter = new FileWriter(arquivo); // LEITOR DE TEXTO
+        FileWriter myWriter = new FileWriter(arquivo+".txt"); // LEITOR DE TEXTO
 
 
         myWriter.write(msg + "\n"); // Adiciona a mensagem, seguida de uma nova linha
@@ -72,7 +72,7 @@ public class ArquivoTxt {
 
   public static void mostrarInformacoes(String arquivo) {// Mostra as informações do arquivo
 
-    File myObj = new File(arquivo);
+    File myObj = new File(arquivo+".txt");
 
     if (myObj.exists()) {
       System.out.println("_____________________________________");
