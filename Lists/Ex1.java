@@ -2,7 +2,8 @@ package Lists;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import Biblioteca.*;
+
+import lib.*;
 
 public class Ex1 {
 

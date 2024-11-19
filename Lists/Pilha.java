@@ -1,8 +1,9 @@
 package Lists;
 
 import java.util.ArrayList;
-import Biblioteca.*;
+
 import Modelos.*;
+import lib.*;
 
 public class Pilha {
     public static void main(String[] args) {

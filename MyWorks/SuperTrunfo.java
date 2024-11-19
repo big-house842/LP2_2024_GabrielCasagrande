@@ -16,10 +16,10 @@ public class SuperTrunfo {
         Ghost matitaPere = new Ghost();
         Ghost theSnot = new Ghost();
 
-        litleGaspar.ReadGhost("four foots", 306, "900");
-        theSnot.ReadGhost("twenty foots", 91, "850");
-        womenOfMidnight.ReadGhost("six foots", 118, "740");
-        matitaPere.ReadGhost("five foots", 519, "1000");
+        litleGaspar.ReadGhost("litlle Gaspar", 900, 306);
+        theSnot.ReadGhost("The Snot", 850, 91);
+        womenOfMidnight.ReadGhost("Women Of Midnight", 740, 118);
+        matitaPere.ReadGhost("Matita Perê", 1000, 519);
 
         gamester1.add(litleGaspar);
         gamester1.add(theSnot);
@@ -45,12 +45,12 @@ public class SuperTrunfo {
                 break;
             }
 
-            if (Integer.parseInt(gamester1.peek().ReturnStrength()) > Integer.parseInt(gamester2.peek().ReturnStrength())) {
+            if (gamester1.peek().ReturnStrength() > gamester2.peek().ReturnStrength()) {
 
                 System.out.println("Player 1 win, " + gamester1.peek().ReturnStrength() + " > " + gamester2.peek().ReturnStrength());
                 ghost1win(gamester1, gamester2);
 
-            } else if (Integer.parseInt(gamester1.peek().ReturnStrength()) < Integer.parseInt(gamester2.peek().ReturnStrength())) {
+            } else if (gamester1.peek().ReturnStrength() < gamester2.peek().ReturnStrength()) {
 
                 System.out.println("Player 2 win, " + gamester2.peek().ReturnStrength() + " > " + gamester1.peek().ReturnStrength());
                 ghost2win(gamester1, gamester2);

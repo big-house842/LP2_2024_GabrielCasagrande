@@ -1,9 +1,9 @@
 package Lists;
 
-import Biblioteca.*;
-
 import java.util.Collections;
 import java.util.LinkedList;
+
+import lib.*;
 
 public class Ex2 {
 

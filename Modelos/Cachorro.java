@@ -1,10 +1,6 @@
 package Modelos;
 
-import Biblioteca.Receba;
-/*Comentários importantes:
- * Sem Static, gera obj
- * 
-*/
+import lib.Receba;
 
 public class Cachorro {// Objeto // faltou o comparable e compareTo
 

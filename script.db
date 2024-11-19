@@ -1,12 +1,14 @@
 create database BancoDeDados;
 
 use BancoDeDados;
-drop database BancoDeDados;
 
-create table comida(
+
+create table Ghost(
 	id int(2) auto_increment primary key,
-    name varchar(50),
-    power int(4),
-    size int(3)
+    nameGhost varchar(50) not null,
+    power int(4) not null,
+    size int(3) not null
     
 );
+
+drop database BancoDeDados;

@@ -1,7 +1,7 @@
 package Lists;
 
-import Biblioteca.*;
 import Modelos.*;
+import lib.*;
 
 import java.util.PriorityQueue;
 
