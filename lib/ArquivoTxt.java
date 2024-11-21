@@ -1,11 +1,14 @@
 package lib;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.FileHandler;
 
-import Modelos.Cachorro;
+import Modelos.*;
 
 public class ArquivoTxt {
 
@@ -33,10 +36,7 @@ public class ArquivoTxt {
   public static void CarregarArquivo(String arquivo){
 
     System.out.println("");
-
-    
   }
-
   /*
    * Para criar um arquivo em um diretório específico (requer permissão),
    * especifique o caminho do arquivo e use barras invertidas duplas para escapar
@@ -45,7 +45,7 @@ public class ArquivoTxt {
    * /Users/name/filename.txt
    */
 
-  public static void GravarMensagem(String arquivo, ArrayList<Cachorro> dogs) {// Grava uma mensagem no arquivo
+  public static void GravarMensagem(String arquivo, ArrayList<Ghost> Ghota) {// Grava uma mensagem no arquivo
 
     System.out.println("Escreva a mensagem que quer gravar no arquivo: ");
     String msg = Receba.LerString();
@@ -59,20 +59,24 @@ public class ArquivoTxt {
         myWriter.write(msg + "\n"); // Adiciona a mensagem, seguida de uma nova linha
 
         
-        for (Cachorro dog : dogs) { // Grava as informações dos cachorros
-            myWriter.write(dog.toString() + "\n");
+        for (Ghost Gho : Ghota) { // Grava as informações dos cachorros
+            myWriter.write(Gho.toString() + "\n");
         }
 
         myWriter.close();
-        System.out.println("A mensagem e os dados dos cachorros foram gravados no arquivo ;)");
+        System.out.println("The message and the ghosts are readed to the arquive ;)");
 
     } catch (IOException e) {
         System.out.println("Um erro ocorreu");
         e.printStackTrace();
     }
     
-
   }
+
+    public static ArrayList<Ghost> readFile(String filename) {
+
+    FileHandler
+    }
 
   public static void mostrarInformacoes(String arquivo) {// Mostra as informações do arquivo
 

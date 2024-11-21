@@ -1,7 +1,10 @@
+package Connected;
+
 import java.sql.*;
 
-public class TestConection {
-    public static void main(String[] args) {
+public class Linked {
+
+    public Connection Link() {
 
         String url = "jdbc:mysql://localhost:3306/BancoDeDados";
         String usuario = "aluno";
@@ -16,10 +19,14 @@ public class TestConection {
 
             // Fechar a conexão após uso
             conexao.close();
+            return conexao;
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
+            return null;
+            
         }
 
     }
+
 }
