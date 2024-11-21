@@ -33,7 +33,10 @@ public class ArquivoTxt {
   public static void CarregarArquivo(String arquivo){
 
     System.out.println("");
+
+    
   }
+
   /*
    * Para criar um arquivo em um diretório específico (requer permissão),
    * especifique o caminho do arquivo e use barras invertidas duplas para escapar
