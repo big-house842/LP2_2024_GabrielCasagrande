@@ -3,16 +3,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import Connected.Linked;
+import Conexao.Conectar;
 import Modelos.*;
 
 public class GhostsDAO {
     
-    public void insertGhost(Ghost phantoms){
+    public void InsertGhost(Ghost phantoms){
 
-        String sql = "Insert Into Ghosts (Name, Strenght and Size)";
+        String sql = "Insert Into Ghosts (Name, Strenght and Size) values(?,?,?)";
 
-        try(Connection conect = new Linked().Link()) {
+        try(Connection conect = new Conectar().Conexao()) {
             
             PreparedStatement stmt = conect.prepareStatement(sql);
 

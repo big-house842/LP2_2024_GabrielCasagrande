@@ -1,10 +1,10 @@
-package Connected;
+package Conexao;
 
 import java.sql.*;
 
-public class Linked {
+public class Conectar {
 
-    public Connection Link() {
+    public Connection Conexao() {
 
         String url = "jdbc:mysql://localhost:3306/BancoDeDados";
         String usuario = "aluno";
@@ -17,8 +17,6 @@ public class Linked {
             Connection conexao = DriverManager.getConnection(url, usuario, senha);
             System.out.println("Conexão estabelecida com sucesso!");
 
-            // Fechar a conexão após uso
-            conexao.close();
             return conexao;
 
         } catch (SQLException | ClassNotFoundException e) {
