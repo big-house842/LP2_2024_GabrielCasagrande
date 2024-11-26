@@ -5,7 +5,7 @@ import lib.Receba;
 public class Ghost {
 
     private String nameGhost;
-    private int strength, size;
+    private int id, strength, size;
     
     public void ReadGhost(String a, int s1, int s2){
 
@@ -15,16 +15,25 @@ public class Ghost {
 
     }
 
-    public void ReadGhost(){
+    public void ReadGhostWithID(int i, String a, int s1, int s2){
+
+        this.id = i;
+        this.nameGhost = a;
+        this.strength = s1;
+        this.size = s2;
+
+    }
+
+    public void ReadGhostUser(){
         System.out.println("------------------------------------------------");
-        System.out.println("      ....::: Ghost :::....");
+        System.out.println("             ....::: Ghost :::....              ");
         System.out.println("------------------------------------------------");
 
-        System.out.print("      Nome: ");
+        System.out.print("      Name: ");
         this.nameGhost = Receba.LerString();
-        System.out.print("      Idade: ");
+        System.out.print("      Strength: ");
         this.strength = Receba.LerNumero();
-        System.out.print("      Apelido: ");
+        System.out.print("      Size: ");
         this.size = Receba.LerNumero();
 
         System.out.println("------------------------------------------------");
@@ -43,7 +52,6 @@ public class Ghost {
     }
 
 
-
     public String ReturnNameGhost(){
         return this.nameGhost;
     }
@@ -56,14 +64,18 @@ public class Ghost {
         return this.size;
     }
 
-
-
     public void PrintGhost(){
 
-        System.out.print( "   Name _ " + this.nameGhost + "   Strengh _ " + this.strength + "   Size _ " + this.size);
+        System.out.print("   Name _ " + this.nameGhost + "   Strengh _ " + this.strength + "   Size _ " + this.size);
         System.out.println();
 
     }
 
+    public void PrintGhostWithID(){
+
+        System.out.print( "   Id _ " + this.id + "   Name _ " + this.nameGhost + "   Strengh _ " + this.strength + "   Size _ " + this.size);
+        System.out.println();
+
+    }
 
 }

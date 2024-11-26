@@ -1,10 +1,10 @@
-package Conexao;
+package BancoDeDados;
 
 import java.sql.*;
 
-public class Conectar {
+public class Conexao {
 
-    public Connection Conexao() {
+    public Connection Conectar() {
 
         String url = "jdbc:mysql://localhost:3306/BancoDeDados";
         String usuario = "aluno";
