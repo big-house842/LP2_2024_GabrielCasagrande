@@ -3,7 +3,7 @@ package MyWorks;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import Modelos.Ghost;
+import Models.Ghost;
 
 public class SuperTrunfo {
 

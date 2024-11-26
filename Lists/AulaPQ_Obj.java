@@ -1,6 +1,6 @@
 package Lists;
 
-import Modelos.*;
+import Models.*;
 import lib.*;
 
 import java.util.PriorityQueue;

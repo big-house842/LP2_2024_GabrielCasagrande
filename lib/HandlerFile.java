@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Modelos.*;
+import Models.*;
 
 public class HandlerFile {
 

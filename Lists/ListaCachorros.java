@@ -2,7 +2,7 @@ package Lists;
 
 import java.util.ArrayList;
 
-import Modelos.Cachorro;
+import Models.Cachorro;
 import lib.*;
 
 public class ListaCachorros {

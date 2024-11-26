@@ -1,14 +1,13 @@
 create database BancoDeDados;
-
 use BancoDeDados;
-
 
 create table Ghost(
 	id int(2) auto_increment primary key,
     nameGhost varchar(50) not null,
-    power int(4) not null,
-    size int(3) not null
+    strength int(5) not null,
+    size int(4) not null
     
 );
+select * from Ghost;
 
 drop database BancoDeDados;

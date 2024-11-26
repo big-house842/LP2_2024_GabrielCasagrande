@@ -4,13 +4,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import Conexao.Conectar;
-import Modelos.*;
+import Models.Ghost;
 
 public class GhostsDAO {
     
     public void InsertGhost(Ghost phantoms){
 
-        String sql = "Insert Into Ghosts (Name, Strenght and Size) values(?,?,?)";
+        String sql = "Insert Into Ghost (nameGhost, strength, size) values(?,?,?)";
 
         try(Connection conect = new Conectar().Conexao()) {
             
@@ -21,7 +21,6 @@ public class GhostsDAO {
             stmt.setInt(3, phantoms.ReturnSize());
         
             stmt.executeUpdate();
-            System.out.println(" Ghost insered whit sucess ");
 
         } catch(SQLException e){
             e.printStackTrace();
