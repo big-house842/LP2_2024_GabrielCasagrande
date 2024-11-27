@@ -1,9 +1,6 @@
 package DAO;
 
-import java.sql.Connection;
 import java.sql.*;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import BancoDeDados.Conexao;
@@ -54,16 +51,17 @@ public class GhostsDAO {
         return null;
     }
 
-    public static Ghost SearchBD(int num){
+    public static Ghost SearchBD(String column, int value){
         Ghost phantom = null;        
-        String sql = "SELECT * FROM Ghost WHERE id = ?";
+        String sql = "SELECT * FROM Ghost WHERE ? = ?";
 
         try(Connection connection = new Conexao().Conectar()){
 
             PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, column);// Primeiro ?
+            stmt.setInt(2, value);// Segundo ?
 
-            stmt.setInt(1, num);
-            ResultSet rs = stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery();// RETORNO
 
             if (rs.next()) {
                 phantom = new Ghost();
@@ -75,6 +73,21 @@ public class GhostsDAO {
         }
 
         return phantom;
+    }
+
+    public void DeleteDB(String column, int value){
+        String sql = "DELETE FROM Ghost WHERE ? = ?";
+
+        try(Connection connection = new Conexao().Conectar()){
+
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, column);
+            stmt.setInt(2, value);
+
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+
     }
 
 }

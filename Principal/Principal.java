@@ -17,9 +17,11 @@ public class Principal {
             System.out.println("           MENU OF ITERATION                 ");
             System.out.println("=============================================");
             System.out.println("    0 - Exit                                 ");
-            System.out.println("    1 - Insert atributes in BD               ");
+            System.out.println("    1 - Insert atributes in database         ");
             System.out.println("    2 - Take out atributes and insert on list of object");
-            System.out.println("    3 - Print the Ghosts in the list         ");
+            System.out.println("    3 - Search the Ghost through the id      ");
+            System.out.println("    4 - Delete a value of an attribute in the database");
+            System.out.println("    5 - Print the Ghosts in the list         ");
             System.out.println("=============================================");
             System.out.print("Choose an option: ");
             System.out.println();
@@ -41,7 +43,11 @@ public class Principal {
                     break;
 
                 case 3:
-                    SearchWithID();
+                    Search();
+                    break;
+
+                case 4:
+                    deleteValueDB();
                     break;
 
             }
@@ -50,14 +56,23 @@ public class Principal {
 
     }
 
-    private static void SearchWithID() {
+    private static void deleteValueDB() {
         
-        System.out.println("Write the id of the Ghost that you want search: ");
-        int num = Receba.LerNumero();
 
-        Ghost phantom = GhostsDAO.SearchBD(num);
+    }
 
-        System.out.println("This is the Ghost: ");
+    private static void Search() {
+
+        System.out.println("Write the atribute and the value of it to search the Ghost that you want: ");
+        System.out.print("      Atribute: ");
+        String column = Receba.LerString();
+        System.out.print("      Value: ");
+        int value = Receba.LerNumero();
+
+        Ghost phantom = GhostsDAO.SearchBD(column, value);
+
+        System.out.println();
+        System.out.println("BOOOOOOO!! This is the Ghost: ");
         phantom.PrintGhost();
 
     }
