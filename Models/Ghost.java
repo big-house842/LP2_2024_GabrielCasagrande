@@ -37,6 +37,7 @@ public class Ghost {
         this.size = Receba.LerNumero();
 
         System.out.println("------------------------------------------------");
+        System.out.println();
     }
 
     public String ReadName(String a){

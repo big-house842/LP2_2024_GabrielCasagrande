@@ -34,31 +34,47 @@ public class GhostsDAO {
 
     public static ArrayList<Ghost> TakeOutGhostsBD(ArrayList<Ghost> listPhantom) {
         String sql = "SELECT * FROM Ghost";
-        Ghost phantom = new Ghost();
 
         try (Connection connection = new Conexao().Conectar()) {
-
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
-
-                int id = rs.getInt("id");
-                String name = rs.getString("nameGhost");
-                int strength = rs.getInt("strength");
-                int size = rs.getInt("size");
-
-                phantom.ReadGhostWithID(id, name, strength, size);
+                Ghost phantom = new Ghost();
+                phantom.ReadGhostWithID(rs.getInt("id"), rs.getString("nameGhost"), rs.getInt("strength"), rs.getInt("size"));
 
                 listPhantom.add(phantom);
 
             }
-
+            return listPhantom;
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return listPhantom;
+        return null;
+    }
+
+    public static Ghost SearchBD(int num){
+        Ghost phantom = null;        
+        String sql = "SELECT * FROM Ghost WHERE id = ?";
+
+        try(Connection connection = new Conexao().Conectar()){
+
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            stmt.setInt(1, num);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                phantom = new Ghost();
+                phantom.ReadGhostWithID(rs.getInt("id"), rs.getString("nameGhost"), rs.getInt("strength"), rs.getInt("size"));
+            }
+
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        return phantom;
     }
 
 }

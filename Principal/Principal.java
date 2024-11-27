@@ -19,6 +19,7 @@ public class Principal {
             System.out.println("    0 - Exit                                 ");
             System.out.println("    1 - Insert atributes in BD               ");
             System.out.println("    2 - Take out atributes and insert on list of object");
+            System.out.println("    3 - Print the Ghosts in the list         ");
             System.out.println("=============================================");
             System.out.print("Choose an option: ");
             System.out.println();
@@ -38,20 +39,38 @@ public class Principal {
                 case 2:
                     takeOutAndInsertList();
                     break;
+
+                case 3:
+                    SearchWithID();
+                    break;
+
             }
 
         }
 
     }
 
+    private static void SearchWithID() {
+        
+        System.out.println("Write the id of the Ghost that you want search: ");
+        int num = Receba.LerNumero();
+
+        Ghost phantom = GhostsDAO.SearchBD(num);
+
+        System.out.println("This is the Ghost: ");
+        phantom.PrintGhost();
+
+    }
+
     private static void takeOutAndInsertList() {
         ArrayList<Ghost> listPhantom = new ArrayList<>();
-        
+
         GhostsDAO.TakeOutGhostsBD(listPhantom);
 
-        for (Ghost phantom : listPhantom) {
-            phantom.PrintGhostWithID();
+        for (Ghost ph : listPhantom) {
+            ph.PrintGhostWithID();
         }
+
     }
 
     private static GhostsDAO insertBD(GhostsDAO phantomDAO) {
@@ -73,7 +92,7 @@ public class Principal {
 
             phantom.ReadGhostUser();
             phantomDAO.InsertGhostBD(phantom);
-            
+
         }
 
         return phantomDAO;
