@@ -43,7 +43,7 @@ public class Principal {
                     break;
 
                 case 3:
-                    Search();
+                    SearchDB();
                     break;
 
                 case 4:
@@ -61,7 +61,7 @@ public class Principal {
 
     }
 
-    private static void Search() {
+    private static void SearchDB() {
 
         System.out.println("Write the atribute and the value of it to search the Ghost that you want: ");
         System.out.print("      Atribute: ");
