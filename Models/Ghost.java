@@ -74,7 +74,9 @@ public class Ghost {
 
     public void PrintGhostWithID(){
 
-        System.out.print( "   Id _ " + this.id + "   Name _ " + this.nameGhost + "   Strengh _ " + this.strength + "   Size _ " + this.size);
+        System.out.println("------------------------------------------------");
+        System.out.print( " |  Id _ " + this.id + "\n" + " |  Name _ " + this.nameGhost + "\n" + " |  Strengh _ " + this.strength + "\n" + " |  Size _ " + this.size + "\n");
+        System.out.println("------------------------------------------------");
         System.out.println();
 
     }

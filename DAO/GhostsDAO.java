@@ -20,7 +20,7 @@ public class GhostsDAO {
             stmt.setInt(2, phantoms.ReturnStrength());
             stmt.setInt(3, phantoms.ReturnSize());
 
-            stmt.executeUpdate();
+            stmt.executeUpdate();// Altera a tabela no DB
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -28,6 +28,20 @@ public class GhostsDAO {
         
     }
 
+    public static void OrderDB(String column){
+        String sql = "SELECT * FROM Ghost ORDER BY " + column.toLowerCase() + " DESC";// ? Não funciona para colunas ou parêmetros
+
+        try (Connection conect = new Conexao().Conectar()){
+
+            PreparedStatement stmt = conect.prepareStatement(sql);
+
+            stmt.executeQuery();// Executa a linha de comando no sql
+
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+
+    }
 
     public static ArrayList<Ghost> TakeOutGhostsBD(ArrayList<Ghost> listPhantom) {
         String sql = "SELECT * FROM Ghost";
@@ -52,37 +66,35 @@ public class GhostsDAO {
     }
 
     public static Ghost SearchBD(String column, int value){
-        Ghost phantom = null;        
-        String sql = "SELECT * FROM Ghost WHERE ? = ?";
-
-        try(Connection connection = new Conexao().Conectar()){
-
+        Ghost phantom = null; 
+        String sql = "SELECT * FROM Ghost WHERE " + column.toLowerCase() + " = ?"; // Construir a consulta SQL com a coluna diretamente
+    
+        try (Connection connection = new Conexao().Conectar()) {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString(1, column);// Primeiro ?
-            stmt.setInt(2, value);// Segundo ?
-
-            ResultSet rs = stmt.executeQuery();// RETORNO
-
+            stmt.setInt(1, value);  // Substituir o "?" pelo valor de 'value'
+    
+            ResultSet rs = stmt.executeQuery();
+    
             if (rs.next()) {
                 phantom = new Ghost();
                 phantom.ReadGhostWithID(rs.getInt("id"), rs.getString("nameGhost"), rs.getInt("strength"), rs.getInt("size"));
             }
-
-        } catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-
+    
         return phantom;
     }
 
-    public void DeleteDB(String column, int value){
-        String sql = "DELETE FROM Ghost WHERE ? = ?";
+    public static void DeleteDB(String column, int value){
+        String sql = "DELETE FROM Ghost WHERE " + column.toLowerCase() + " = ?";
 
         try(Connection connection = new Conexao().Conectar()){
 
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString(1, column);
-            stmt.setInt(2, value);
+            stmt.setInt(1, value);
+
+            stmt.executeUpdate();
 
         } catch(SQLException e){
             e.printStackTrace();

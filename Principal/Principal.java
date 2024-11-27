@@ -47,7 +47,11 @@ public class Principal {
                     break;
 
                 case 4:
-                    deleteValueDB();
+                    deleteGhostDB();
+                    break;
+
+                case 5:
+                    orderDB();
                     break;
 
             }
@@ -56,8 +60,25 @@ public class Principal {
 
     }
 
-    private static void deleteValueDB() {
+    private static void orderDB() {
+
+        System.out.println("Write the atribute of the Ghost that you want to order the DB: ");
+        System.out.print("      Atribute: ");
+        String column = Receba.LerString();
+
+        GhostsDAO.OrderDB(column);
         
+    }
+
+    private static void deleteGhostDB() {
+        
+        System.out.println("Write the atribute and the value of it to delete the Ghost that you want: ");
+        System.out.print("      Atribute: ");
+        String column = Receba.LerString();
+        System.out.print("      Value: ");
+        int value = Receba.LerNumero();
+
+        GhostsDAO.DeleteDB(column, value);
 
     }
 
@@ -72,8 +93,9 @@ public class Principal {
         Ghost phantom = GhostsDAO.SearchBD(column, value);
 
         System.out.println();
-        System.out.println("BOOOOOOO!! This is the Ghost: ");
-        phantom.PrintGhost();
+        System.out.println("    BOOOOOOO!!    ");
+
+        phantom.PrintGhostWithID();
 
     }
 
