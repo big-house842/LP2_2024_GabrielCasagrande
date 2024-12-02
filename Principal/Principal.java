@@ -21,7 +21,7 @@ public class Principal {
             System.out.println("    2 - Take out attributes and insert on list of object");
             System.out.println("    3 - Search the Ghost through the id      ");
             System.out.println("    4 - Delete a value of an attribute in the database");
-            System.out.println("    5 - Print the attributes of the database order decreasingly ");
+            System.out.println("    5 - Print the attributes of the database order decreasingly");
             System.out.println("    6 - Print the attributes of the database  ");
             System.out.println("=============================================");
             System.out.print("Choose an option: ");
