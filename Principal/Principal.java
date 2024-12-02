@@ -17,11 +17,12 @@ public class Principal {
             System.out.println("           MENU OF ITERATION                 ");
             System.out.println("=============================================");
             System.out.println("    0 - Exit                                 ");
-            System.out.println("    1 - Insert atributes in database         ");
-            System.out.println("    2 - Take out atributes and insert on list of object");
+            System.out.println("    1 - Insert attributes in database         ");
+            System.out.println("    2 - Take out attributes and insert on list of object");
             System.out.println("    3 - Search the Ghost through the id      ");
             System.out.println("    4 - Delete a value of an attribute in the database");
-            System.out.println("    5 - Print the Ghosts in the list         ");
+            System.out.println("    5 - Print the attributes of the database order decreasingly ");
+            System.out.println("    6 - Print the attributes of the database  ");
             System.out.println("=============================================");
             System.out.print("Choose an option: ");
             System.out.println();
@@ -51,7 +52,11 @@ public class Principal {
                     break;
 
                 case 5:
-                    orderDB();
+                    printOrderDB();
+                    break;
+
+                case 6:
+                    printDB();
                     break;
 
             }
@@ -60,18 +65,35 @@ public class Principal {
 
     }
 
-    private static void orderDB() {
+    private static void printDB() {// Não terminei
+        ArrayList<Ghost> listPhantom = new ArrayList<>();
+
+        for (Ghost ph : listPhantom) {
+            ph.PrintGhostWithID();
+        }
+    }
+
+    private static void printOrderDB() {
+
+        ArrayList<Ghost> listPhantom = new ArrayList<>();
 
         System.out.println("Write the atribute of the Ghost that you want to order the DB: ");
         System.out.print("      Atribute: ");
         String column = Receba.LerString();
 
-        GhostsDAO.OrderDB(column);
-        
+        GhostsDAO.OrderDB(column, listPhantom);
+
+        System.out.println("------------------------------------------------");
+        System.out.println("            The organized attributes            ");
+
+        for (Ghost ph : listPhantom) {
+            ph.PrintGhostWithID();
+        }
+
     }
 
     private static void deleteGhostDB() {
-        
+
         System.out.println("Write the atribute and the value of it to delete the Ghost that you want: ");
         System.out.print("      Atribute: ");
         String column = Receba.LerString();
