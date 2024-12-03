@@ -8,8 +8,32 @@ import Models.Ghost;
 
 public class GhostsDAO {
 
-    public void InsertGhostBD(Ghost phantoms) {
+    public static Ghost MostStrengthGhost() {
+        String sql = "SELECT * FROM Ghost ORDER BY strength DESC";
 
+        try (Connection conect = new Conexao().Conectar()) {
+
+            PreparedStatement stmt = conect.prepareStatement(sql);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Ghost phantom = new Ghost();
+                phantom.ReadGhostWithID(rs.getInt("id"), rs.getString("nameGhost"), rs.getInt("strength"),
+                        rs.getInt("size"));
+
+                return phantom;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+    }
+
+    public void InsertGhostBD(Ghost phantoms) {
         String sql = "Insert Into Ghost (nameGhost, strength, size) values(?,?,?)";
 
         try (Connection conect = new Conexao().Conectar()) {
@@ -28,6 +52,32 @@ public class GhostsDAO {
 
     }
 
+    public static int CountPhantomDB() {
+        String sql = "SELECT COUNT(*) FROM Ghost";
+
+        try (Connection conect = new Conexao().Conectar()) {
+
+            PreparedStatement stmt = conect.prepareStatement(sql);
+
+            // Aqui o correto é executeQuery, pois estamos realizando uma consulta
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                int qtd;
+                qtd = rs.getInt("count(*)");
+
+                return qtd;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+
+    }
+
     public static void OrderDB(String column, ArrayList<Ghost> listPhantom) {
         String sql = "SELECT * FROM Ghost ORDER BY " + column.toLowerCase();// ? Não funciona para colunas parêmetros
 
@@ -42,9 +92,9 @@ public class GhostsDAO {
                 Ghost phantom = new Ghost();
                 phantom.ReadGhostWithID(rs.getInt("id"), rs.getString("nameGhost"), rs.getInt("strength"),
                         rs.getInt("size"));
-                
+
                 listPhantom.add(phantom);
-                
+
             }
 
         } catch (SQLException e) {
