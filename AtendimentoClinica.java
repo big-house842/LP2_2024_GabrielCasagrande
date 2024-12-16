@@ -3,7 +3,8 @@ import Models.*;
 
 public class AtendimentoClinica {
     public static void main(String[] args) {
-        Stack<Paciente> cliente = new Stack<Paciente>();
+
+        Stack<Paciente> cliente = new Stack<Paciente>(); // é para usar uma fila, imagina só o último a chegar ser o primeiro a ser atendido na clinica.
 
         AdicionarPaciente(cliente);
         AtenderPaciente(cliente);

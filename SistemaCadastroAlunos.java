@@ -21,6 +21,7 @@ public class SistemaCadastroAlunos {// DEU CERTO
 
     }
 
+    // Exibir todos os alunos
     private static void exibirAlunos(HashMap<Integer, String> alunos) {
 
         System.out.println();
